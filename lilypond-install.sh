@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+. ./lilypond-install.env
+
 LILYPOND_VERSION=${VERSION:-2.22.2}-1
 LILYPOND_INSTALLER=lilypond-${LILYPOND_VERSION}.linux-64.sh
 

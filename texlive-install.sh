@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+. ./texlive-install.env
+
 install_debian_packages() {
     if ! dpkg -s "${@}" > /dev/null 2>&1
     then
