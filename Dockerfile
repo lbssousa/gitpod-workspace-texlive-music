@@ -6,12 +6,12 @@ ARG TEXLIVE_VERSION=2022
 ARG TEXLIVE_SCHEME=minimal
 ARG TEXLIVE_EXTRA_PACKAGES="babel-latin babel-portuges chktex ebgaramond enumitem epstopdf-pkg etoolbox fancyhdr fontspec geometry gregoriotex grfext hyperref hyphen-english hyphen-latin hyphen-portuguese infwarerr kvoptions latex-bin latexindent latexmk luacolor luamplib luatexbase lyluatex memoir metapost microtype musixtex musixtex-fonts m-tx paracol pdftexcmds pmx texcount titlesec tools xcolor xkeyval xstring"
 
-RUN apt-get update -y && \
-    apt-get -y install --no-install-recommends bzip2 ca-certificates curl libfile-homedir-perl libunicode-linebreak-perl libyaml-tiny-perl perl-doc && \
+RUN sudo apt-get update -y && \
+    sudo apt-get -y install --no-install-recommends bzip2 ca-certificates curl libfile-homedir-perl libunicode-linebreak-perl libyaml-tiny-perl perl-doc && \
 
     # Install LilyPond
     curl -O https://lilypond.org/download/binaries/linux-64/${LILYPOND_INSTALLER} && \
-    sh ./${LILYPOND_INSTALLER} --batch && \
+    sudo sh ./${LILYPOND_INSTALLER} --batch && \
 
     # Install TeX Live
     if [ "${TEXLIVE_VERSION}" = "latest" ]; then \
@@ -64,10 +64,10 @@ RUN apt-get update -y && \
     $(${TEXLIVE_COLLECTION_TEXWORKS}) && echo "collection-texworks 1" >> /tmp/install-tl-unx/texlive.profile && \
     $(${TEXLIVE_COLLECTION_WINTOOLS}) && echo "collection-wintools 1" >> /tmp/install-tl-unx/texlive.profile && \
     $(${TEXLIVE_COLLECTION_XETEX}) && echo "collection-xetex 1" >> /tmp/install-tl-unx/texlive.profile && \
-    /tmp/install-tl-unx/install-tl -profile /tmp/install-tl-unx/texlive.profile && \
-    [ -n ${TEXLIVE_EXTRA_PACKAGES} ] && $(find /usr/local/texlive -name tlmgr) install ${TEXLIVE_EXTRA_PACKAGES} && \
-    $(find /usr/local/texlive -name tlmgr) path add && \
+    sudo /tmp/install-tl-unx/install-tl -profile /tmp/install-tl-unx/texlive.profile && \
+    [ -n ${TEXLIVE_EXTRA_PACKAGES} ] && sudo $(find /usr/local/texlive -name tlmgr) install ${TEXLIVE_EXTRA_PACKAGES} && \
+    sudo $(find /usr/local/texlive -name tlmgr) path add && \
 
     # Clean up
-    apt-get -y clean && \
+    sudo apt-get -y clean && \
     rm -f ./${LILYPOND_INSTALLER} ./install-tl-unx.tar.gz
