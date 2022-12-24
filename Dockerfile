@@ -67,47 +67,47 @@ RUN sudo apt-get update -y && \
     mkdir /tmp/install-tl-unx && \
     tar -xzvf install-tl-unx.tar.gz -C /tmp/install-tl-unx --strip-components=1 && \
     echo "selected_scheme scheme-${TEXLIVE_SCHEME}" > /tmp/install-tl-unx/texlive.profile && \
-    ( ${TEXLIVE_COLLECTION_BASIC} && echo "collection-basic 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_BIBTEXEXTRA} && echo "collection-bibtexextra 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_BINEXTRA} && echo "collection-binextra 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_CONTEXT} && echo "collection-context 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_FONTSEXTRA} && echo "collection-fontsextra 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_FONTSRECOMMENDED} && echo "collection-fontsrecommended 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_FONTUTILS} && echo "collection-fontutils 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_FORMATSEXTRA} && echo "collection-formatsextra 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_GAMES} && echo "collection-games 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_HUMANITIES} && echo "collection-humanities 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGARABIC} && echo "collection-langarabic 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGCHINESE} && echo "collection-langchinese 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGCJK} && echo "collection-langcjk 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGCYRILLIC} && echo "collection-langcyrillic 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGCZECHSLOVAK} && echo "collection-langczechslovak 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGENGLISH} && echo "collection-langenglish 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGEUROPEAN} && echo "collection-langeuropean 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGFRENCH} && echo "collection-langfrench 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGGERMAN} && echo "collection-langgerman 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGGREEK} && echo "collection-langgreek 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGITALIAN} && echo "collection-langitalian 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGJAPANESE} && echo "collection-langjapanese 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGKOREAN} && echo "collection-langkorean 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGOTHER} && echo "collection-langother 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGPOLISH} && echo "collection-langpolish 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGPORTUGUESE} && echo "collection-langportuguese 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LANGSPANISH} && echo "collection-langspanish 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LATEX} && echo "collection-latex 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LATEXEXTRA} && echo "collection-latexextra 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LATEXRECOMMENDED} && echo "collection-latexrecommended 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_LUATEX} && echo "collection-luatex 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_MATHSCIENCE} && echo "collection-mathscience 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_METAPOST} && echo "collection-metapost 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_MUSIC} && echo "collection-music 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_PICTURES} && echo "collection-pictures 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_PLAINGENERIC} && echo "collection-plaingeneric 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_PSTRICKS} && echo "collection-pstricks 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_PUBLISHERS} && echo "collection-publishers 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_TEXWORKS} && echo "collection-texworks 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_WINTOOLS} && echo "collection-wintools 1" >> /tmp/install-tl-unx/texlive.profile; \
-    ${TEXLIVE_COLLECTION_XETEX} && echo "collection-xetex 1" >> /tmp/install-tl-unx/texlive.profile ) && \
+    ( [ "${TEXLIVE_COLLECTION_BASIC}" = "true" ] && echo "collection-basic 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_BIBTEXEXTRA}" = "true" ] && echo "collection-bibtexextra 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_BINEXTRA}" = "true" ] && echo "collection-binextra 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_CONTEXT}" = "true" ] && echo "collection-context 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_FONTSEXTRA}" = "true" ] && echo "collection-fontsextra 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_FONTSRECOMMENDED}" = "true" ] && echo "collection-fontsrecommended 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_FONTUTILS}" = "true" ] && echo "collection-fontutils 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_FORMATSEXTRA}" = "true" ] && echo "collection-formatsextra 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_GAMES}" = "true" ] && echo "collection-games 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_HUMANITIES}" = "true" ] && echo "collection-humanities 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGARABIC}" = "true" ] && echo "collection-langarabic 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGCHINESE}" = "true" ] && echo "collection-langchinese 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGCJK}" = "true" ] && echo "collection-langcjk 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGCYRILLIC}" = "true" ] && echo "collection-langcyrillic 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGCZECHSLOVAK}" = "true" ] && echo "collection-langczechslovak 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGENGLISH}" = "true" ] && echo "collection-langenglish 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGEUROPEAN}" = "true" ] && echo "collection-langeuropean 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGFRENCH}" = "true" ] && echo "collection-langfrench 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGGERMAN}" = "true" ] && echo "collection-langgerman 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGGREEK}" = "true" ] && echo "collection-langgreek 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGITALIAN}" = "true" ] && echo "collection-langitalian 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGJAPANESE}" = "true" ] && echo "collection-langjapanese 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGKOREAN}" = "true" ] && echo "collection-langkorean 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGOTHER}" = "true" ] && echo "collection-langother 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGPOLISH}" = "true" ] && echo "collection-langpolish 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGPORTUGUESE}" = "true" ] && echo "collection-langportuguese 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LANGSPANISH}" = "true" ] && echo "collection-langspanish 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LATEX}" = "true" ] && echo "collection-latex 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LATEXEXTRA}" = "true" ] && echo "collection-latexextra 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LATEXRECOMMENDED}" = "true" ] && echo "collection-latexrecommended 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_LUATEX}" = "true" ] && echo "collection-luatex 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_MATHSCIENCE}" = "true" ] && echo "collection-mathscience 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_METAPOST}" = "true" ] && echo "collection-metapost 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_MUSIC}" = "true" ] && echo "collection-music 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_PICTURES}" = "true" ] && echo "collection-pictures 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_PLAINGENERIC}" = "true" ] && echo "collection-plaingeneric 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_PSTRICKS}" = "true" ] && echo "collection-pstricks 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_PUBLISHERS}" = "true" ] && echo "collection-publishers 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_TEXWORKS}" = "true" ] && echo "collection-texworks 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_WINTOOLS}" = "true" ] && echo "collection-wintools 1" >> /tmp/install-tl-unx/texlive.profile; \
+    [ "${TEXLIVE_COLLECTION_XETEX}" = "true" ] && echo "collection-xetex 1" >> /tmp/install-tl-unx/texlive.profile ) && \
     sudo /tmp/install-tl-unx/install-tl -profile /tmp/install-tl-unx/texlive.profile && \
     ( [ -n ${TEXLIVE_EXTRA_PACKAGES} ] && sudo $(find /usr/local/texlive -name tlmgr) install ${TEXLIVE_EXTRA_PACKAGES} ) && \
     sudo $(find /usr/local/texlive -name tlmgr) path add && \
