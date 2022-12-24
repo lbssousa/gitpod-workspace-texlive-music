@@ -64,6 +64,7 @@ RUN sudo apt-get update -y && \
     $(${TEXLIVE_COLLECTION_TEXWORKS}) && echo "collection-texworks 1" >> /tmp/install-tl-unx/texlive.profile && \
     $(${TEXLIVE_COLLECTION_WINTOOLS}) && echo "collection-wintools 1" >> /tmp/install-tl-unx/texlive.profile && \
     $(${TEXLIVE_COLLECTION_XETEX}) && echo "collection-xetex 1" >> /tmp/install-tl-unx/texlive.profile && \
+    cat /tmp/install-tl-unx/texlive.profile && \
     sudo /tmp/install-tl-unx/install-tl -profile /tmp/install-tl-unx/texlive.profile && \
     [ -n ${TEXLIVE_EXTRA_PACKAGES} ] && sudo $(find /usr/local/texlive -name tlmgr) install ${TEXLIVE_EXTRA_PACKAGES} && \
     sudo $(find /usr/local/texlive -name tlmgr) path add && \
