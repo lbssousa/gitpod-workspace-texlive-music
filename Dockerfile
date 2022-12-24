@@ -109,7 +109,7 @@ RUN sudo apt-get update -y && \
     if ${TEXLIVE_COLLECTION_WINTOOLS}; then echo "collection-wintools 1" >> /tmp/install-tl-unx/texlive.profile; fi && \
     if ${TEXLIVE_COLLECTION_XETEX}; then echo "collection-xetex 1" >> /tmp/install-tl-unx/texlive.profile; fi && \
     sudo /tmp/install-tl-unx/install-tl -profile /tmp/install-tl-unx/texlive.profile && \
-    if [ -n ${TEXLIVE_EXTRA_PACKAGES} ]; then sudo $(find /usr/local/texlive -name tlmgr) install ${TEXLIVE_EXTRA_PACKAGES}; fi && \
+    if [ -n "${TEXLIVE_EXTRA_PACKAGES}" ]; then sudo $(find /usr/local/texlive -name tlmgr) install ${TEXLIVE_EXTRA_PACKAGES}; fi && \
     sudo $(find /usr/local/texlive -name tlmgr) path add && \
     rm -f ./install-tl-unx.tar.gz && \
     sudo apt-get -y clean
