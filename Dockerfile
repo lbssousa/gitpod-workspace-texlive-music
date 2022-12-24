@@ -7,7 +7,7 @@ ARG TEXLIVE_SCHEME=minimal
 ARG TEXLIVE_EXTRA_PACKAGES="babel-latin babel-portuges chktex ebgaramond enumitem epstopdf-pkg etoolbox fancyhdr fontspec geometry gregoriotex grfext hyperref hyphen-english hyphen-latin hyphen-portuguese infwarerr kvoptions latex-bin latexindent latexmk luacolor luamplib luatexbase lyluatex memoir metapost microtype musixtex musixtex-fonts m-tx paracol pdftexcmds pmx texcount titlesec tools xcolor xkeyval xstring"
 
 RUN sudo apt-get update -y && \
-    sudo apt-get -y install --no-install-recommends bzip2 ca-certificates curl libfile-homedir-perl libunicode-linebreak-perl libyaml-tiny-perl perl-doc && \
+    sudo apt-get -y install --no-install-recommends bzip2 ca-certificates curl libfile-homedir-perl libunicode-linebreak-perl libyaml-tiny-perl perl-doc wget && \
 
     # Install LilyPond
     curl -O https://lilypond.org/download/binaries/linux-64/${LILYPOND_INSTALLER} && \
@@ -19,7 +19,7 @@ RUN sudo apt-get update -y && \
     else \
         URL="http://ftp.math.utah.edu/pub/tex/historic/systems/texlive/${TL_VERSION}"; \
     fi && \
-    curl -O ${URL}/install-tl-unx.tar.gz && \
+    wget ${URL}/install-tl-unx.tar.gz && \
     mkdir /tmp/install-tl-unx && \
     tar -xzvf install-tl-unx.tar.gz -C /tmp/install-tl-unx --strip-components=1 && \
     echo "selected_scheme scheme-${TEXLIVE_SCHEME}" > /tmp/install-tl-unx/texlive.profile && \
