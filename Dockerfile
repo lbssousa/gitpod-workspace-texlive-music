@@ -4,6 +4,47 @@ ARG LILYPOND_VERSION=2.22.2
 ARG LILYPOND_INSTALLER=lilypond-${LILYPOND_VERSION}-1.linux-64.sh
 ARG TEXLIVE_VERSION=2022
 ARG TEXLIVE_SCHEME=minimal
+ARG TEXLIVE_COLLECTION_BASIC=false
+ARG TEXLIVE_COLLECTION_BIBTEXEXTRA=false
+ARG TEXLIVE_COLLECTION_BINEXTRA=false
+ARG TEXLIVE_COLLECTION_CONTEXT=false
+ARG TEXLIVE_COLLECTION_FONTSEXTRA=false
+ARG TEXLIVE_COLLECTION_FONTSRECOMMENDED=false
+ARG TEXLIVE_COLLECTION_FONTUTILS=false
+ARG TEXLIVE_COLLECTION_FORMATSEXTRA=false
+ARG TEXLIVE_COLLECTION_GAMES=false
+ARG TEXLIVE_COLLECTION_HUMANITIES=false
+ARG TEXLIVE_COLLECTION_LANGARABIC=false
+ARG TEXLIVE_COLLECTION_LANGCHINESE=false
+ARG TEXLIVE_COLLECTION_LANGCJK=false
+ARG TEXLIVE_COLLECTION_LANGCYRILLIC=false
+ARG TEXLIVE_COLLECTION_LANGCZECHSLOVAK=false
+ARG TEXLIVE_COLLECTION_LANGENGLISH=false
+ARG TEXLIVE_COLLECTION_LANGEUROPEAN=false
+ARG TEXLIVE_COLLECTION_LANGFRENCH=false
+ARG TEXLIVE_COLLECTION_LANGGERMAN=false
+ARG TEXLIVE_COLLECTION_LANGGREEK=false
+ARG TEXLIVE_COLLECTION_LANGITALIAN=false
+ARG TEXLIVE_COLLECTION_LANGJAPANESE=false
+ARG TEXLIVE_COLLECTION_LANGKOREAN=false
+ARG TEXLIVE_COLLECTION_LANGOTHER=false
+ARG TEXLIVE_COLLECTION_LANGPOLISH=false
+ARG TEXLIVE_COLLECTION_LANGPORTUGUESE=false
+ARG TEXLIVE_COLLECTION_LANGSPANISH=false
+ARG TEXLIVE_COLLECTION_LATEX=false
+ARG TEXLIVE_COLLECTION_LATEXEXTRA=false
+ARG TEXLIVE_COLLECTION_LATEXRECOMMENDED=false
+ARG TEXLIVE_COLLECTION_LUATEX=false
+ARG TEXLIVE_COLLECTION_MATHSCIENCE=false
+ARG TEXLIVE_COLLECTION_METAPOST=false
+ARG TEXLIVE_COLLECTION_MUSIC=false
+ARG TEXLIVE_COLLECTION_PICTURES=false
+ARG TEXLIVE_COLLECTION_PLAINGENERIC=false
+ARG TEXLIVE_COLLECTION_PSTRICKS=false
+ARG TEXLIVE_COLLECTION_PUBLISHERS=false
+ARG TEXLIVE_COLLECTION_TEXWORKS=false
+ARG TEXLIVE_COLLECTION_WINTOOLS=false
+ARG TEXLIVE_COLLECTION_XETEX=false
 ARG TEXLIVE_EXTRA_PACKAGES="babel-latin babel-portuges chktex ebgaramond enumitem epstopdf-pkg etoolbox fancyhdr fontspec geometry gregoriotex grfext hyperref hyphen-english hyphen-latin hyphen-portuguese infwarerr kvoptions latex-bin latexindent latexmk luacolor luamplib luatexbase lyluatex memoir metapost microtype musixtex musixtex-fonts m-tx paracol pdftexcmds pmx texcount titlesec tools xcolor xkeyval xstring"
 
 RUN sudo apt-get update -y && \
@@ -64,7 +105,6 @@ RUN sudo apt-get update -y && \
     $(${TEXLIVE_COLLECTION_TEXWORKS}) && echo "collection-texworks 1" >> /tmp/install-tl-unx/texlive.profile && \
     $(${TEXLIVE_COLLECTION_WINTOOLS}) && echo "collection-wintools 1" >> /tmp/install-tl-unx/texlive.profile && \
     $(${TEXLIVE_COLLECTION_XETEX}) && echo "collection-xetex 1" >> /tmp/install-tl-unx/texlive.profile && \
-    cat /tmp/install-tl-unx/texlive.profile && \
     sudo /tmp/install-tl-unx/install-tl -profile /tmp/install-tl-unx/texlive.profile && \
     [ -n ${TEXLIVE_EXTRA_PACKAGES} ] && sudo $(find /usr/local/texlive -name tlmgr) install ${TEXLIVE_EXTRA_PACKAGES} && \
     sudo $(find /usr/local/texlive -name tlmgr) path add && \
