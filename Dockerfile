@@ -47,14 +47,17 @@ ARG TEXLIVE_COLLECTION_WINTOOLS=0
 ARG TEXLIVE_COLLECTION_XETEX=0
 ARG TEXLIVE_EXTRA_PACKAGES="babel-latin babel-portuges chktex ebgaramond enumitem epstopdf-pkg etoolbox fancyhdr fontspec geometry gregoriotex grfext hyperref hyphen-english hyphen-latin hyphen-portuguese infwarerr kvoptions latex-bin latexindent latexmk luacolor luamplib luatexbase lyluatex memoir metapost microtype musixtex musixtex-fonts m-tx paracol pdftexcmds pmx texcount titlesec tools xcolor xkeyval xstring"
 
+# Install LilyPond
 RUN sudo apt-get update -y && \
-    sudo apt-get -y install --no-install-recommends bzip2 ca-certificates curl libfile-homedir-perl libunicode-linebreak-perl libyaml-tiny-perl perl-doc && \
-
-    # Install LilyPond
+    sudo apt-get -y install --no-install-recommends bzip2 ca-certificates curl && \
     curl -O https://lilypond.org/download/binaries/linux-64/${LILYPOND_INSTALLER} && \
     sudo sh ./${LILYPOND_INSTALLER} --batch && \
+    rm -f ./${LILYPOND_INSTALLER} && \
+    sudo apt-get -y clean
 
-    # Install TeX Live
+# Install TeX Live
+RUN sudo apt-get update -y && \
+    sudo apt-get -y install --no-install-recommends bzip2 ca-certificates curl libfile-homedir-perl libunicode-linebreak-perl libyaml-tiny-perl perl-doc && \
     if [ "${TEXLIVE_VERSION}" = "latest" ]; then \
         URL="http://mirror.ctan.org/systems/texlive/tlnet"; \
     else \
@@ -108,7 +111,5 @@ RUN sudo apt-get update -y && \
     sudo /tmp/install-tl-unx/install-tl -profile /tmp/install-tl-unx/texlive.profile && \
     [ -n ${TEXLIVE_EXTRA_PACKAGES} ] && sudo $(find /usr/local/texlive -name tlmgr) install ${TEXLIVE_EXTRA_PACKAGES} && \
     sudo $(find /usr/local/texlive -name tlmgr) path add && \
-
-    # Clean up
-    sudo apt-get -y clean && \
-    rm -f ./${LILYPOND_INSTALLER} ./install-tl-unx.tar.gz
+    rm -f ./install-tl-unx.tar.gz && \
+    sudo apt-get -y clean
