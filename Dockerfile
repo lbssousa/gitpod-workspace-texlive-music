@@ -67,11 +67,11 @@ RUN sudo apt-get update -y && \
     [ ${TEXLIVE_COLLECTION_BASIC} = 1 ] && echo "collection-basic 1" >> /tmp/install-tl-unx/texlive.profile && \
     [ ${TEXLIVE_COLLECTION_BIBTEXEXTRA} = 1 ] && echo "collection-bibtexextra 1" >> /tmp/install-tl-unx/texlive.profile && \
     [ ${TEXLIVE_COLLECTION_BINEXTRA} = 1 ] && echo "collection-binextra 1" >> /tmp/install-tl-unx/texlive.profile && \
-    [ ${TEXLIVE_COLLECTION_CONTEXT = 1 ] && echo "collection-context 1" >> /tmp/install-tl-unx/texlive.profile && \
-    [ ${TEXLIVE_COLLECTION_FONTSEXTRA = 1 ] && echo "collection-fontsextra 1" >> /tmp/install-tl-unx/texlive.profile && \
+    [ ${TEXLIVE_COLLECTION_CONTEXT} = 1 ] && echo "collection-context 1" >> /tmp/install-tl-unx/texlive.profile && \
+    [ ${TEXLIVE_COLLECTION_FONTSEXTRA} = 1 ] && echo "collection-fontsextra 1" >> /tmp/install-tl-unx/texlive.profile && \
     [ ${TEXLIVE_COLLECTION_FONTSRECOMMENDED} = 1 ] && echo "collection-fontsrecommended 1" >> /tmp/install-tl-unx/texlive.profile && \
     [ ${TEXLIVE_COLLECTION_FONTUTILS} = 1 ] && echo "collection-fontutils 1" >> /tmp/install-tl-unx/texlive.profile && \
-    [ ${TEXLIVE_COLLECTION_FORMATSEXTRA = 1 ] && echo "collection-formatsextra 1" >> /tmp/install-tl-unx/texlive.profile && \
+    [ ${TEXLIVE_COLLECTION_FORMATSEXTRA} = 1 ] && echo "collection-formatsextra 1" >> /tmp/install-tl-unx/texlive.profile && \
     [ ${TEXLIVE_COLLECTION_GAMES} = 1 ] && echo "collection-games 1" >> /tmp/install-tl-unx/texlive.profile && \
     [ ${TEXLIVE_COLLECTION_HUMANITIES} = 1 ] && echo "collection-humanities 1" >> /tmp/install-tl-unx/texlive.profile && \
     [ ${TEXLIVE_COLLECTION_LANGARABIC} = 1 ] && echo "collection-langarabic 1" >> /tmp/install-tl-unx/texlive.profile && \
