@@ -53,7 +53,7 @@ RUN sudo apt-get update -y && \
     sudo apt-get -y install --no-install-recommends bzip2 ca-certificates curl && \
     curl -LO https://gitlab.com/lilypond/lilypond/-/releases/v${LILYPOND_VERSION}/downloads/${LILYPOND_PACKAGE} && \
     [ $(sha256sum ${LILYPOND_PACKAGE} | cut -d' ' -f1) = ${LILYPOND_SHA256} ] && \
-    tar xzvf ${LILYPOND_PACKAGE} -C /opt && \
+    sudo tar xzvf ${LILYPOND_PACKAGE} -C /opt && \
     for bin in /opt/lilypond-${LILYPOND_VERSION}/bin/*; do \
         sudo ln -s ${bin} /usr/local/bin; \
     done && \
