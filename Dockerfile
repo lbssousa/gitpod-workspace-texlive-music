@@ -1,7 +1,8 @@
 FROM gitpod/workspace-base:2022-12-15-12-38-23
 
 ARG LILYPOND_VERSION=2.24.0
-ARG LILYPOND_INSTALLER=lilypond-${LILYPOND_VERSION}-1.linux-64.sh
+ARG LILYPOND_PACKAGE=lilypond-${LILYPOND_VERSION}-linux-x86_64.tar.gz
+ARG LILYPOND_SHA256=5ed6ced6ade894b6dc1db35474b5e82a175a1149d34f16e75aaa9d885d9d3f6a
 ARG TEXLIVE_VERSION=2022
 ARG TEXLIVE_SCHEME=minimal
 ARG TEXLIVE_COLLECTION_BASIC=false
@@ -50,9 +51,13 @@ ARG TEXLIVE_EXTRA_PACKAGES="babel-latin babel-portuges chktex ebgaramond enumite
 # Install LilyPond
 RUN sudo apt-get update -y && \
     sudo apt-get -y install --no-install-recommends bzip2 ca-certificates curl && \
-    curl -O https://lilypond.org/download/binaries/linux-64/${LILYPOND_INSTALLER} && \
-    sudo sh ./${LILYPOND_INSTALLER} --batch && \
-    rm -f ./${LILYPOND_INSTALLER} && \
+    curl -LO https://gitlab.com/lilypond/lilypond/-/releases/v${LILYPOND_VERSION}/downloads/${LILYPOND_PACKAGE} && \
+    [ $(sha256sum ${LILYPOND_PACKAGE} | cut -d' ' -f1) = ${LILYPOND_SHA256} ] && \
+    tar xzvf ${LILYPOND_PACKAGE} -C /opt && \
+    for bin in /opt/lilypond-${LILYPOND_VERSION}/bin/*; do \
+        sudo ln -s ${bin} /usr/local/bin; \
+    done && \
+    rm -f ./${LILYPOND_PACKAGE} && \
     sudo apt-get -y clean
 
 # Install TeX Live
